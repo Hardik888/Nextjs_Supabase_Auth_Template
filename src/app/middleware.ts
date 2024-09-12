@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession()
 
-  if (!session && req.nextUrl.pathname.startsWith('/clubdashboard')) {
+  if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
     const loginUrl = new URL('/', req.url)
     return NextResponse.redirect(loginUrl)
   }
